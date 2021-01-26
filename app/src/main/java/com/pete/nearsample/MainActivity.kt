@@ -35,6 +35,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var nearConnect: NearConnect
     private lateinit var binding : ActivityMainBinding
     private var blockData : User? = null
+    var myHost:  Host? = null
 
     var adapter : BlockAdapter? = null
 
@@ -80,7 +81,8 @@ class MainActivity : AppCompatActivity() {
 
             blockBt.setOnClickListener {
                 val newUser = User("TEST VOTER",12,"myPREVIOUSHAHS","19/09/2020")
-                this@MainActivity.adapter!!.addNewUser(newUser)
+                val userJson : String = "NewBlock:" + Gson().toJson(newUser)
+                this@MainActivity.nearConnect.send(userJson.toByteArray(), myHost!!)
             }
         }
     }
@@ -103,6 +105,7 @@ class MainActivity : AppCompatActivity() {
             override fun onPeersUpdate(host: Set<Host>) {
                 val hostList = ArrayList(host)
                 val currentHost = hostList[0]
+                myHost = currentHost
                 Snackbar.make(binding.root, currentHost.name, Snackbar.LENGTH_SHORT).show()
                 nearConnect.send(MESSAGE_LISTENING_NEWBLOCK.toByteArray(),currentHost)
             }

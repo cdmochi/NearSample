@@ -77,6 +77,11 @@ class MainActivity : AppCompatActivity() {
             }
             usrRecycler.layoutManager = LinearLayoutManager(this@MainActivity,LinearLayoutManager.VERTICAL,false)
             usrRecycler.adapter = this@MainActivity.adapter
+
+            blockBt.setOnClickListener {
+                val newUser = User("TEST VOTER",12,"myPREVIOUSHAHS","19/09/2020")
+                this@MainActivity.adapter!!.addNewUser(newUser)
+            }
         }
     }
 

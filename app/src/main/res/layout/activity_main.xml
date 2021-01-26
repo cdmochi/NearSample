@@ -23,9 +23,9 @@
         android:id="@+id/connect_bt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginStart="104dp"
+        android:layout_marginTop="32dp"
         android:text="PAIR"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/host_et" />
 
@@ -48,5 +48,18 @@
         app:layout_constraintStart_toStartOf="@+id/host_et"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0" />
+
+    <Button
+        android:id="@+id/block_bt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="32dp"
+        android:backgroundTint="@android:color/holo_orange_dark"
+        android:text="BLOCk"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.008"
+        app:layout_constraintStart_toEndOf="@+id/connect_bt"
+        app:layout_constraintTop_toBottomOf="@+id/host_et" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

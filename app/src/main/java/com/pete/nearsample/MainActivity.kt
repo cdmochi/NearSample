@@ -69,14 +69,10 @@ class MainActivity : AppCompatActivity() {
             //Node start sending with #hostname
             var myHostName = hostEt.text
             connectBt.setOnClickListener {
-                if (myHostName.isNotEmpty()) {
-                    nearDiscovery.makeDiscoverable(hostName = myHostName.toString())
-                    startDiscovery()
-                    if (!nearConnect.isReceiving) {
-                        nearConnect.startReceiving()
-                    }
-                } else {
-                    Snackbar.make(binding.root,"The Host name is empty",Snackbar.LENGTH_SHORT).show()
+                nearDiscovery.makeDiscoverable(hostName = myHostName.toString())
+                startDiscovery()
+                if (!nearConnect.isReceiving) {
+                    nearConnect.startReceiving()
                 }
             }
             usrRecycler.layoutManager = LinearLayoutManager(this@MainActivity,LinearLayoutManager.VERTICAL,false)
